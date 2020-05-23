@@ -1,0 +1,41 @@
+openapi: 3.0.0
+info:
+  title: Sample API
+  version: 0.0.1
+servers:
+  - url: http://localhost:3000/api
+    description: Sample Host
+tags:
+  - name: Sample
+paths:
+  /getTest:
+    get:
+      tags: [ "Sample" ]
+      summary: Get test.
+      description: Get test.
+      operationId: getTest
+      parameters:
+        - in: query
+          name: name
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Sample
+  /postTest:
+    post:
+      tags: [ "Sample" ]
+      summary: Post test.
+      description: Post test.
+      operationId: postTest
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+      responses:
+        '200':
+          description: Sample
