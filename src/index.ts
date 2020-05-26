@@ -11,17 +11,10 @@ app.use((req: express.Request, res: express.Response, next) => {
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-const router: express.Router = express.Router();
-router.get('/api/getTest', (req: express.Request, res: express.Response) => {
-  res.send(req.query);
-});
-router.post('/api/postTest', (req: express.Request, res: express.Response) => {
-  res.send(req.body);
+app.get('/api/v1/', (req: express.Request, res: express.Response) => {
+  res.json({
+    message: 'Hello World',
+  });
 });
 
-app.use(router);
-
-app.listen(3000, () => {
-  // eslint-disable-next-line no-console
-  console.log('Example app listening on port 3000!');
-});
+app.listen(3000);
