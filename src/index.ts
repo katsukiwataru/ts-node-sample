@@ -1,4 +1,5 @@
 import express from 'express';
+import { router } from './route/v1';
 
 const app: express.Express = express();
 
@@ -11,10 +12,6 @@ app.use((req: express.Request, res: express.Response, next) => {
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.get('/api/v1/', (req: express.Request, res: express.Response) => {
-  res.json({
-    message: 'Hello World',
-  });
-});
+app.use('/api/v1/', router);
 
 app.listen(3000);
